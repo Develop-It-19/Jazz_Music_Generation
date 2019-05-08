@@ -1,3 +1,6 @@
+#A Sequence Model can be used to generate musical values, which are then post-processed into midi music.
+#In Keras, Sequence generation involves defining layers with shared weights, which are then repeated for the different time steps 1, ...., Tx.
+
 #Import Dependencies
 from __future__ import print_function
 import IPython
@@ -110,6 +113,8 @@ results, indices = predict_and_sample(inference_model, x_initializer, a_initiali
 print("np.argmax(results[12]) = ", np.argmax(results[12]))
 print("np.argmax(results[17]) = ", np.argmax(results[17]))
 print("list(indices[12:18]) = ", list(indices[12:18]))
+
+#Post Processing makes a huge difference in the quality of music which is generated.
 
 out_stream = generate_music(inference_model)
 
